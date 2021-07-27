@@ -15,7 +15,8 @@ struct Landmark: Hashable, Codable, Identifiable {
     var park: String
     var state: String
     var description: String
-    var isFavorite: Bool
+    var isFavorite: Bool //是否收藏
+    var isFeatured: Bool //是否精选
     
    
 //    匹配文件名称加载对应的数据

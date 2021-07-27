@@ -7,18 +7,27 @@
 
 import SwiftUI
 
-
-/**
- https://developer.apple.com/tutorials/swiftui/handling-user-input
- 
- 
- Step 7
-
- Switch back to LandmarkList.swift and turn on the live preview to verify that everything is working properly.
- */
 struct ContentView: View {
+    
+    @State private var selection: Tab  = .featured
+    //enum 枚举
+    enum Tab {
+        case featured
+        case list
+    }
     var body: some View {
-        LandmarkList()
+        TabView(selection: $selection) {
+            CategoryHome()
+                .tabItem {
+                    Label("精选", systemImage: "star" )
+                }
+                .tag(Tab.featured)
+            LandmarkList()
+                .tabItem {
+                    Label("列表", systemImage: "list.bullet" )
+                }
+                .tag(Tab.list)
+        }
     }
 }
 

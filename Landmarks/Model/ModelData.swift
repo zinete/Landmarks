@@ -15,6 +15,10 @@ final class ModelData: ObservableObject {
     @Published var landmarks: [Landmark] = load("landmarkData.json")
     var hikes: [Hike] = load("hikeData.json")
     
+// 筛选出已经精选的
+    var features: [Landmark] {
+        landmarks.filter {$0.isFavorite}
+    }
 // 创建一个计算字段、已类别名称为键。关联相关键的地标数组
     var categories: [String: [Landmark]] {
         Dictionary(
