@@ -34,6 +34,11 @@ struct Landmark: Hashable, Codable, Identifiable {
         Image(imageName)
     }
     
+//    读取首页精选图片
+    var freatureImage: Image? {
+        isFeatured ? Image(imageName + "_feature") : nil
+    }
+    
 //    管理坐标位置信息
     private var coordinates: Coordinates
     

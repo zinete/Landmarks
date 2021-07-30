@@ -12,9 +12,26 @@ import SwiftUI
 struct LandmarksApp: App {
     @StateObject private var modelData = ModelData()
     var body: some Scene {
-        WindowGroup {
+        
+        let mainWindow = WindowGroup {
             ContentView()
                 .environmentObject(modelData)
         }
+        
+        mainWindow
+        
+        //只在MacOS生效
+        #if os(macOS)
+        mainWindow
+            .commands{
+                LandmarkCommands()
+            }
+        #endif
+        
+        
+        //只在 watchOs生效
+        #if os(watchOS)
+        WKNotificationScene(controller: NotificationController.self, category: "LandmarkNear")
+        #endif
     }
 }

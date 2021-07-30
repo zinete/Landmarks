@@ -13,6 +13,8 @@ import Combine
 // 创建一个可观察的对象 。如果响应的数据更新。视图也会对应更新
 final class ModelData: ObservableObject {
     @Published var landmarks: [Landmark] = load("landmarkData.json")
+    @Published var profile = Profile.default
+    
     var hikes: [Hike] = load("hikeData.json")
     
 // 筛选出已经精选的
