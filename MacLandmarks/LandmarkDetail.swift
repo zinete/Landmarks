@@ -50,8 +50,7 @@ struct LandmarkDetail: View {
                     .font(.title2)
                 Text(landmark.description)
             }
-            .padding()
-            .frame(maxWidth: 700)
+            .padding(.horizontal, 32)
             .offset(y: -50)
         }
         .navigationTitle("landmarkInfo")

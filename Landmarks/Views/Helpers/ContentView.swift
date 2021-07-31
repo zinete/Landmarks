@@ -14,12 +14,18 @@ struct ContentView: View {
     enum Tab {
         case featured
         case list
+        case testpage
     }
     var body: some View {
         TabView(selection: $selection) {
-            CategoryHome()
+//            CategoryHome()
+//                .tabItem {
+//                    Label("精选", systemImage: "star" )
+//                }
+//                .tag(Tab.featured)
+            Discover()
                 .tabItem {
-                    Label("精选", systemImage: "star" )
+                    Label("Discover", systemImage: "star" )
                 }
                 .tag(Tab.featured)
             LandmarkList()
@@ -27,6 +33,11 @@ struct ContentView: View {
                     Label("列表", systemImage: "list.bullet" )
                 }
                 .tag(Tab.list)
+            loginPage()
+                .tabItem {
+                    Label("测试", systemImage: "flame")
+                }
+                .tag(Tab.testpage)
         }
     }
 }

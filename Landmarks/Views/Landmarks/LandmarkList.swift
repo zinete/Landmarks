@@ -5,8 +5,11 @@ struct LandmarkList: View {
     @EnvironmentObject var modelData: ModelData
     //   是否显示已经收藏按钮的状态
     @State private var showFavoritesOnly = false
-    
+    //  筛选对应数据。默认全部
     @State private var filter = FilterCategory.all
+    //
+    @State private var selectLandmark: Landmark?
+    
     //   筛选出已经收藏的数据
     var filteredLandmarks: [Landmark] {
         modelData.landmarks.filter { landmarks in
@@ -20,6 +23,10 @@ struct LandmarkList: View {
         return showFavoritesOnly ? "Favorite \(title)" : title
     }
     
+    var index : Int? {
+        modelData.landmarks.firstIndex(where: {$0.id == selectLandmark?.id})
+    }
+    
     enum FilterCategory: String, CaseIterable, Identifiable {
         case all = "All"
         case lakes = "Lakes"
@@ -31,12 +38,12 @@ struct LandmarkList: View {
     
     var body: some View {
         NavigationView {
-            List{
-                
+            List(selection: $selectLandmark){
                 ForEach(filteredLandmarks) {landmark in
                     NavigationLink(destination: LandmarkDetail(landmark: landmark)) {
                         LandmarkRow(landmark: landmark)
                     }
+                    .tag(landmark)
                 }
             }
             .navigationTitle(title)
@@ -61,6 +68,7 @@ struct LandmarkList: View {
             }
             Text("Select a Landmark")
         }
+        .focusedValue(\.selectedLandmark, $modelData.landmarks[index ?? 0])
     }
 }
 

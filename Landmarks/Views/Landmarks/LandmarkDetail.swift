@@ -6,9 +6,10 @@
 //
 
 import SwiftUI
-
+import Introspect
 struct LandmarkDetail: View {
     @EnvironmentObject var modelData: ModelData
+    @State var uiTabarController: UITabBarController?
     var landmark: Landmark
     
     var landmarkIndex : Int {
@@ -52,7 +53,14 @@ struct LandmarkDetail: View {
     }
         .navigationTitle(landmark.name)
         .navigationBarTitleDisplayMode(.inline)
+        .introspectTabBarController { (UITabBarController) in
+            UITabBarController.tabBar.isHidden = true
+            uiTabarController = UITabBarController
+        }.onDisappear{
+            uiTabarController?.tabBar.isHidden = false
+        }
     }
+    
 }
 
 struct LandmarkDetail_Previews: PreviewProvider {
