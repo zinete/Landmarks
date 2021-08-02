@@ -1,16 +1,48 @@
 PODS:
+  - Alamofire (5.4.3)
+  - HandyJSON (5.0.2)
   - Introspect (0.1.3)
+  - Moya (14.0.0):
+    - Moya/Core (= 14.0.0)
+  - Moya/Core (14.0.0):
+    - Alamofire (~> 5.0)
+  - SDWebImage (5.11.1):
+    - SDWebImage/Core (= 5.11.1)
+  - SDWebImage/Core (5.11.1)
+  - SDWebImageSwiftUI (2.0.2):
+    - SDWebImage (~> 5.10)
+  - SnapKit (5.0.1)
+  - SwiftyJSON (4.3.0)
 
 DEPENDENCIES:
+  - HandyJSON
   - Introspect
+  - Moya (~> 14.0)
+  - SDWebImageSwiftUI
+  - SnapKit
+  - SwiftyJSON (~> 4.0)
 
 SPEC REPOS:
   trunk:
+    - Alamofire
+    - HandyJSON
     - Introspect
+    - Moya
+    - SDWebImage
+    - SDWebImageSwiftUI
+    - SnapKit
+    - SwiftyJSON
 
 SPEC CHECKSUMS:
+  Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
+  HandyJSON: 9e4e236f5d2dbefad5155a77417bbea438201c03
   Introspect: 2be020f30f084ada52bb4387fff83fa52c5c400e
+  Moya: 5b45dacb75adb009f97fde91c204c1e565d31916
+  SDWebImage: a7f831e1a65eb5e285e3fb046a23fcfbf08e696d
+  SDWebImageSwiftUI: 8a3923c95108312b03a599ec1498754af55a6819
+  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
+  SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
 
-PODFILE CHECKSUM: 804c0793f6cfeac29398edcbe02156427c9a9620
+PODFILE CHECKSUM: c395deb0f02d6d9be1e21f25ee248d6c64f009b8
 
 COCOAPODS: 1.10.1

@@ -7,6 +7,10 @@ target 'Landmarks' do
 
   # Pods for Landmarks
   pod 'Introspect'
+  pod 'SnapKit'
+  pod 'Moya', '~> 14.0'
+  pod 'SwiftyJSON', '~> 4.0'
+  pod 'SDWebImageSwiftUI'
 end
 
 target 'MacLandmarks' do

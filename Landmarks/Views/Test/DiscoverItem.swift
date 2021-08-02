@@ -14,17 +14,18 @@ struct DiscoverItem: View {
             .resizable()
             .renderingMode(.original)
             .frame(width: 345, height: 387)
-            HStack(alignment: .top) {
+            HStack(alignment: .center) {
                 Image("discover")
                     .resizable()
                     .renderingMode(.original)
                     .frame(width: 28, height: 28)
                     .cornerRadius(14)
                
-                VStack() {
-                    Text(/*@START_MENU_TOKEN@*/"Placeholder"/*@END_MENU_TOKEN@*/)
-                    Text(/*@START_MENU_TOKEN@*/"Placeholder"/*@END_MENU_TOKEN@*/)
-
+                VStack(alignment:.leading) {
+                    Text("Zheng hui")
+                        .font(.headline)
+                    Text("@www.zinete.com")
+                        .font(.subheadline)
                 }
                Spacer()
             }
@@ -33,6 +34,7 @@ struct DiscoverItem: View {
 }
 
 struct DiscoverItem_Previews: PreviewProvider {
+    var landmark: Landmark
     static var previews: some View {
         DiscoverItem()
     }

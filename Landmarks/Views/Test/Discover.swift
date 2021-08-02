@@ -9,19 +9,29 @@ import SwiftUI
 import Introspect
 struct Discover: View {
     @State var uiTabarController: UITabBarController?
+    @EnvironmentObject var images: ImageData
+    var imageData = ImageData().images
+   
     var body: some View {
         NavigationView {
             ScrollView(.vertical) {
                 VStack(alignment: .leading) {
-                    Text(/*@START_MENU_TOKEN@*/"Placeholder"/*@END_MENU_TOKEN@*/)
+                    Text("What’s new today")
                         .font(.title2)
+                        .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                     ScrollView(.horizontal, showsIndicators: false) {
                         HStack(spacing: 14){
                             ForEach(/*@START_MENU_TOKEN@*/0 ..< 5/*@END_MENU_TOKEN@*/) { item in
                                 DiscoverItem()
                             }
                         }
+                        
                     }
+                    .padding(.bottom, 24)
+                    Text("Browse all")
+                        .font(.title2)
+                        .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                    BrowseItem(imageData: imageData, imagesModel: imageData[0])
                 }.padding()
                 
             }
@@ -36,5 +46,6 @@ struct Discover: View {
 struct Discover_Previews: PreviewProvider {
     static var previews: some View {
         Discover()
+            .environmentObject(ImageData())
     }
 }
