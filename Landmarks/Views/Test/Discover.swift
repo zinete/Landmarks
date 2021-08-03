@@ -11,7 +11,7 @@ struct Discover: View {
     @State var uiTabarController: UITabBarController?
     @EnvironmentObject var images: ImageData
     var imageData = ImageData().images
-   
+
     var body: some View {
         NavigationView {
             ScrollView(.vertical) {
@@ -19,19 +19,12 @@ struct Discover: View {
                     Text("What’s new today")
                         .font(.title2)
                         .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
-                    ScrollView(.horizontal, showsIndicators: false) {
-                        HStack(spacing: 14){
-                            ForEach(/*@START_MENU_TOKEN@*/0 ..< 5/*@END_MENU_TOKEN@*/) { item in
-                                DiscoverItem()
-                            }
-                        }
-                        
-                    }
+                    DiscoverItem()
                     .padding(.bottom, 24)
                     Text("Browse all")
                         .font(.title2)
-                        .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
-                    BrowseItem(imageData: imageData, imagesModel: imageData[0])
+                        .fontWeight(.bold)
+                    BrowseItem()
                 }.padding()
                 
             }

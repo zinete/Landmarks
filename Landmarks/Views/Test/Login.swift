@@ -42,9 +42,7 @@ struct Login: View {
                 .padding(.bottom, 16)
                 
                 
-                NavigationLink(
-                    destination: Discover()
-                    ) {
+                HStack() {
                     Spacer()
                     Text("Log in")
                         .foregroundColor(.white)

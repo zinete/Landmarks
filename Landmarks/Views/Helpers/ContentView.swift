@@ -14,30 +14,32 @@ struct ContentView: View {
     enum Tab {
         case featured
         case list
+        case search
         case testpage
     }
     var body: some View {
         TabView(selection: $selection) {
-//            CategoryHome()
-//                .tabItem {
-//                    Label("精选", systemImage: "star" )
-//                }
-//                .tag(Tab.featured)
             Discover()
                 .tabItem {
-                    Label("Discover", systemImage: "star" )
+                    Label("Discover", systemImage: "house" )
                 }
                 .tag(Tab.featured)
-            LandmarkList()
+            SearchImage()
                 .tabItem {
-                    Label("列表", systemImage: "list.bullet" )
+                    Label("Search", systemImage: "magnifyingglass.circle" )
                 }
-                .tag(Tab.list)
+                .tag(Tab.search)
             loginPage()
                 .tabItem {
-                    Label("测试", systemImage: "flame")
+               
+                    Label("Me", systemImage: "person" )
                 }
-                .tag(Tab.testpage)
+                .tag(Tab.list)
+//            loginPage()
+//                .tabItem {
+//                    Label("测试", systemImage: "flame")
+//                }
+//                .tag(Tab.testpage)
         }
     }
 }

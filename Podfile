@@ -10,7 +10,9 @@ target 'Landmarks' do
   pod 'SnapKit'
   pod 'Moya', '~> 14.0'
   pod 'SwiftyJSON', '~> 4.0'
+  pod 'MBProgressHUD', '~> 1.2.0'
   pod 'SDWebImageSwiftUI'
+  
 end
 
 target 'MacLandmarks' do
