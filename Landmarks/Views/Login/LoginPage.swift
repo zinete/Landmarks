@@ -9,22 +9,14 @@ import SwiftUI
 
 struct loginPage: View {
     var body: some View {
-        NavigationView {
-          
-            ScrollView {
-                
-               
-                VStack {
-                    Login(userName: "", passWorld: "")
-                }
+        ScrollView {
+            
+           
+            VStack {
+                Login(userName: "", passWorld: "")
             }
-            
-            
-            
-            
         }
-       
-        
+
     }
 }
 

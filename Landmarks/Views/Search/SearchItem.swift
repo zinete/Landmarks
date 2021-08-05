@@ -9,32 +9,30 @@ import SwiftUI
 
 struct SearchItem: View {
     var body: some View {
-        HStack {
-            LazyVGrid(
-                columns: [GridItem(.adaptive(minimum: 107), spacing: 12)],
-                content: {
-                    ForEach(0..<10) { item in
-                        NavigationLink(
-                            destination: /*@START_MENU_TOKEN@*/Text("Destination")/*@END_MENU_TOKEN@*/,
-                            isActive: /*@START_MENU_TOKEN@*/.constant(true)/*@END_MENU_TOKEN@*/,
-                            label: {
-                                
-                                Image("discover")
-                                    .resizable()
-                                    .frame(height: 107)
-                            })
-                    }
-                })
-                .padding()
-            
-            
-        }
+        let landmarks = ModelData().landmarks
+        LazyVGrid(
+            columns: [GridItem(.adaptive(minimum: 107), spacing: 12)],
+            content: {
+                ForEach(landmarks) { item in
+                    NavigationLink(
+                        destination: ImageInfo(imgURL: URL(string: "http://poolga.com/shared/images/poolgas/iphone_2129.jpg")!),
+                        
+                        label: {
+                            
+                            item.image
+                                .resizable()
+                                .frame(height: 107)
+                        })
+                }
+            })
+           
+        
     }
 }
 
 struct SearchItem_Previews: PreviewProvider {
     static var previews: some View {
         SearchItem()
-//            .previewLayout(.fixed(width: 107, height: 107))
+        //            .previewLayout(.fixed(width: 107, height: 107))
     }
 }

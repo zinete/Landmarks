@@ -10,27 +10,48 @@ import SwiftUI
 struct SearchImage: View {
     
     @State var search: String = ""
+
     var body: some View {
-        NavigationView {
+      
             ScrollView {
                 VStack(alignment: .leading) {
-                    TextField("dog", text: $search)
-                        .padding(10)
-                        .frame(height:52)
-                        .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/, width: 2)
-                        .background(Color(.white))
+//                    TextField("dog", text: $search)
+//                        .padding(10)
+//                        .frame(height:52)
+//                        .border(Color.black, width: 2)
+//                        .background(Color(.white))
                     
-                    Text("ALL RESULTS")
-                        .padding(.top, 32)
-                        .font(.title3)
+                    Text("What’s new today")
+                        .font(.title2)
+                        .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                    SearchItem()
+                        .padding(.bottom, 32)
+                    Button(action: {}, label: {
+                        Spacer()
+                        Text("SEE MORE")
+                            .fontWeight(.bold)
+                            
+                        Spacer()
+                    })
+                    
+                    .frame(height: 52)
+                    .scaledToFill()
+                   
+                    .foregroundColor(.black)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 6.0)
+                            .stroke(Color.black, lineWidth: 2)
+                    )
+                   
+                    
+                    
+                    
                 }
                 .padding(.top, 20)
-                .padding()
-                SearchItem()
+                .padding(.horizontal, 16)
+                
             }
-            .navigationTitle("Search")
-            
-        }
+     
     }
     
 }

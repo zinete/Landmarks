@@ -10,15 +10,13 @@ import SDWebImageSwiftUI
 
 struct BrowseItem: View {
    
-    @State var newslist: [Zphotos] = []
-    @State var isPresented: Bool = false
-    @State var imgUrl = URL(string: "https://static.zinete.com/img_top_bg.png")
+    @ObservedObject var newslist = loadlistImg()
     var body: some View {
         LazyVGrid(
             columns: [GridItem(.adaptive(minimum: 159), spacing: 16)],
             spacing: 16
         ) {
-            ForEach(newslist) { item in
+            ForEach(newslist.photoArray) { item in
                 NavigationLink(
                     destination: ImageInfo(imgURL: item.urls),
                     label: {
@@ -29,14 +27,12 @@ struct BrowseItem: View {
                             
                             .frame(maxHeight: 350)
                     })
+                    .buttonStyle(PlainButtonStyle())
             }
            
         }
         .onAppear(){
-            ApiZphotos().getNewLista{(post) in
-                self.newslist = post
-//                debugPrint("photo lists")
-            }
+            
         }
         .onDisappear() {
             print("onDisappearonDisappear")
